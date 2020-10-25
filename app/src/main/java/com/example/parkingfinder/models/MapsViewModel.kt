@@ -14,11 +14,6 @@ class MapsViewModel : ViewModel() {
 
     private val username: MutableLiveData<String?> = MutableLiveData(null)
 
-    override fun onCleared() {
-        super.onCleared()
-        // Dispose All your Subscriptions to avoid memory leaks
-    }
-
     fun parkingRequest(taken: Boolean, idUser: Int, idParking: Int, context: Context) {
         RetrofitClient.instance.greyEntered(taken = taken, idUser = idUser, idParking = idParking)
             .enqueue(object : Callback<GreyResponse> {

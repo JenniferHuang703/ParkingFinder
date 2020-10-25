@@ -35,7 +35,7 @@
         android:id="@+id/points"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="You have: 10 points"
+        android:text="You have: 16 points"
         android:gravity="center"
         android:textSize="24dp"
         android:layout_marginTop="16dp"

@@ -43,12 +43,12 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            viewModel.loginRequest(username,password,applicationContext)
 
             val intent = Intent(this@LoginActivity, MapsActivity::class.java)
             intent.flags =
                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
-            viewModel.loginRequest(username,password,applicationContext)
             startActivity(intent)
         }
 

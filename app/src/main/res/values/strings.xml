@@ -19,7 +19,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="username">Username</string>
-    <string name="are_you_going_to_parked_in_this_spot">Are you going to parked in this spot?</string>
+    <string name="are_you_going_to_parked_in_this_spot">Are you going to park in this spot?</string>
     <string name="yes">YES</string>
     <string name="no">NO</string>
     <string name="is_the_spot_occupied">Is the spot occupied?</string>

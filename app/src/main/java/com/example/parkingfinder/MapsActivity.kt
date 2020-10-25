@@ -149,40 +149,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                     LatLng(45.45838, -73.86676)
                 )
         )
-        polygon4.tag = "grey"
+        polygon4.tag = "beta"
         stylePolygon(polygon4)
-    }
 
+        val polygon5 = googleMap.addPolygon(
+            PolygonOptions()
+                .clickable(true)
+                .add(
+                    LatLng(45.45817, -73.86676),
+                    LatLng(45.45815, -73.86674),
+                    LatLng(45.45810, -73.86684),
+                    LatLng(45.45812, -73.86686)
+                )
+        )
+        polygon5.tag = "grey"
+        stylePolygon(polygon5)
 
-    /**
-     * Creates a List of LatLngs that form a rectangle with the given dimensions.
-     */
-    private fun createRectangle(
-        center: LatLng,
-        halfWidth: Double,
-        halfHeight: Double,
-        googleMap: GoogleMap
-    ) {
-
-        var width = halfWidth
-        var height = halfHeight
-
-        for (i in 0..5) {
-            val polygon = googleMap.addPolygon(
-                PolygonOptions()
-                    .clickable(true)
-                    .add(
-                        LatLng(center.latitude - halfHeight, center.longitude + halfWidth),
-                        LatLng(center.latitude + halfHeight, center.longitude + halfWidth),
-                        LatLng(center.latitude + halfHeight, center.longitude - halfWidth),
-                        LatLng(center.latitude - halfHeight, center.longitude - halfWidth)
-                    )
-            )
-            polygon.tag = "alpha"
-            stylePolygon(polygon)
-            width -= 0.000005
-            height += 0.000005
-        }
+        val polygon6 = googleMap.addPolygon(
+            PolygonOptions()
+                .clickable(true)
+                .add(
+                    LatLng(45.45889, -73.86739),
+                    LatLng(45.45887, -73.86736),
+                    LatLng(45.45884, -73.86744),
+                    LatLng(45.45886, -73.86746)
+                )
+        )
+        polygon6.tag = "grey"
+        stylePolygon(polygon6)
     }
 
     /**
@@ -281,9 +275,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             "beta" -> leaveDialog(polygon)
             "grey" -> parkingDialog(polygon)
         }
-
-//        Toast.makeText(applicationContext, polygon?.id, Toast.LENGTH_SHORT).show()
-
     }
 
     private fun requestCameraPermission() {
@@ -339,8 +330,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             viewModel.parkingRequest(true, 1,1,applicationContext)
             polygon?.tag = "beta"
             stylePolygon(polygon)
-            Toast.makeText(applicationContext, "clicked yes for gris to vert", Toast.LENGTH_SHORT)
-                .show()
             parkingDialog.dismiss()
         }
         parkingDialog.parking_no.setOnClickListener {
@@ -348,8 +337,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             requestCameraPermission()
             polygon?.tag = "alpha"
             stylePolygon(polygon)
-            Toast.makeText(applicationContext, "clicked no for gris to vert", Toast.LENGTH_SHORT)
-                .show()
             parkingDialog.dismiss()
         }
         parkingDialog.show()
@@ -362,13 +349,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             viewModel.parkingRequest(true, 1,1,applicationContext)
             polygon?.tag = "beta"
             stylePolygon(polygon)
-            Toast.makeText(applicationContext, "clicked yes for vert to rouge", Toast.LENGTH_SHORT)
-                .show()
             leavingDialog.dismiss()
         }
         leavingDialog.park_no.setOnClickListener {
-            Toast.makeText(applicationContext, "clicked no for  vert to rouge", Toast.LENGTH_SHORT)
-                .show()
             leavingDialog.dismiss()
         }
         leavingDialog.show()
@@ -383,16 +366,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             viewModel.parkingRequest(false, 1,1,applicationContext)
             polygon?.tag = "alpha"
             stylePolygon(polygon)
-            Toast.makeText(applicationContext, "clicked yes for rouge to vert", Toast.LENGTH_SHORT)
-                .show()
             occupiedDialog.dismiss()
         }
         noBtn.setOnClickListener {
-            Toast.makeText(applicationContext, "clicked no for rouge to vert", Toast.LENGTH_SHORT)
-                .show()
             occupiedDialog.dismiss()
         }
         occupiedDialog.show()
     }
-
 }
